@@ -19,3 +19,10 @@ pub fn derive_answer_fn(_item: TokenStream) -> TokenStream {
 pub fn derive_attr_answer(_item: TokenStream) -> TokenStream {
     TokenStream::new()
 }
+
+#[proc_macro_attribute]
+pub fn show_streams(attr: TokenStream, item: TokenStream) -> TokenStream {
+    println!("attr: \"{}\"", attr.to_string());
+    println!("item: \"{}\"", item.to_string());
+    item
+}
