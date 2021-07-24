@@ -1,5 +1,7 @@
 use proc_macro_lib::{make_answer, AnswerFn, HelperAttr};
 
+make_answer!();
+
 #[derive(AnswerFn)]
 struct Struct;
 
@@ -14,7 +16,6 @@ struct AttrStruct {
 }
 
 fn main() {
-    make_answer!();
-    println!("{}", answer());
+    println!("{}", answer(10, 20));
     println!("{}", answer_derive());
 }
