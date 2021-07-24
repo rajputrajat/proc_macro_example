@@ -1,0 +1,4 @@
+[workspace]
+members = [
+    "proc_macro_lib", "check"
+]
