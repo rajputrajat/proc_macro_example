@@ -1,5 +1,6 @@
 #![warn(dead_code)]
 #![allow(unused)]
+use crate_for_bin::HelloMacro;
 use proc_macro_lib::{make_answer, show_streams, AnswerFn, HelperAttr};
 
 make_answer!();
@@ -15,6 +16,14 @@ struct AttrStruct {
     b: f32,
     #[helper_3]
     c: i8,
+}
+
+struct Pancakes;
+
+impl HelloMacro for Pancakes {
+    fn hello_macro() {
+        println!("Hello, Macro! My name is PanCakes!");
+    }
 }
 
 #[show_streams]
@@ -46,4 +55,6 @@ fn main() {
 
     let int_vec = custom_vec![1, 2, 3];
     println!("{:#?}", int_vec);
+
+    Pancakes::hello_macro();
 }

@@ -1,4 +1,6 @@
 use proc_macro::TokenStream;
+use quote::quote;
+use syn;
 
 #[proc_macro]
 pub fn make_answer(_item: TokenStream) -> TokenStream {
@@ -25,4 +27,25 @@ pub fn show_streams(attr: TokenStream, item: TokenStream) -> TokenStream {
     println!("attr: \"{}\"", attr.to_string());
     println!("item: \"{}\"", item.to_string());
     item
+}
+
+// following are from the books
+
+#[proc_macro_derive(HelloMacro)]
+pub fn hello_macro_derive(input: TokenStream) -> TokenStream {
+    let ast = syn::parse(input).unwrap();
+
+    impl_hello_macro(&ast)
+}
+
+fn impl_hello_macro(ast: &syn::DeriveInput) -> TokenStream {
+    let name = &ast.ident;
+    let gen = quote! {
+        impl HelloMacro for #name {
+            fn hello_macro() {
+                println!("hello, Macro! My name is {}!", stringify!(#name));
+            }
+        }
+    };
+    gen.into()
 }

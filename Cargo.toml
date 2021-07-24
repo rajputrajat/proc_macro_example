@@ -1,4 +1,4 @@
 [workspace]
 members = [
-    "proc_macro_lib", "check"
+    "proc_macro_lib", "check", "crate_for_bin"
 ]
