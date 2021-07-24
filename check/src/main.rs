@@ -27,7 +27,21 @@ fn invoke3() {}
 #[show_streams{ delimiters }]
 fn invoke4() {}
 
+#[macro_export]
+macro_rules! custom_vec {
+    ( $( $i: expr ),* ) => {
+        {
+            let mut v = Vec::new();
+            $( v.push( $i ); )*
+            v
+        }
+    };
+}
+
 fn main() {
     println!("{}", answer(10, 20));
     println!("{}", answer_derive());
+
+    let int_vec = custom_vec![1, 2, 3];
+    println!("{:#?}", int_vec);
 }
