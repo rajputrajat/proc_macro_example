@@ -5,6 +5,9 @@ version = 3
 [[package]]
 name = "check"
 version = "0.1.0"
+dependencies = [
+ "proc_macro_lib",
+]
 
 [[package]]
 name = "proc_macro_lib"

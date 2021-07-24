@@ -1,3 +1,6 @@
+use proc_macro_lib::make_answer;
+
 fn main() {
-    println!("Hello, world!");
+    make_answer!();
+    println!("{}", answer());
 }
