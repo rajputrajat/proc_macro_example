@@ -1,3 +1,5 @@
+#![warn(dead_code)]
+#![allow(unused)]
 use proc_macro_lib::{make_answer, show_streams, AnswerFn, HelperAttr};
 
 make_answer!();
