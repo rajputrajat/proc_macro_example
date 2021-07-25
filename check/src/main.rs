@@ -54,7 +54,7 @@ fn main() {
     println!("{}", answer_derive());
 
     let int_vec = custom_vec![1, 2, 3];
-    println!("{:#?}", int_vec);
+    println!("{:?}", int_vec);
 
     Pancakes::hello_macro();
 }

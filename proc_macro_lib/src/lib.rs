@@ -1,5 +1,6 @@
 use proc_macro::TokenStream;
 use quote::quote;
+use syn;
 
 #[proc_macro]
 pub fn make_answer(_item: TokenStream) -> TokenStream {
@@ -38,6 +39,7 @@ pub fn hello_macro_derive(input: TokenStream) -> TokenStream {
 }
 
 fn impl_hello_macro(ast: &syn::DeriveInput) -> TokenStream {
+    println!("{:#?}", stringify!(&ast));
     let name = &ast.ident;
     let gen = quote! {
         impl HelloMacro for #name {
