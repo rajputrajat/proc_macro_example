@@ -1,6 +1,5 @@
 use proc_macro::TokenStream;
 use quote::quote;
-use syn;
 
 #[proc_macro]
 pub fn make_answer(_item: TokenStream) -> TokenStream {
